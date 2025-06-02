@@ -1,6 +1,6 @@
 import json
-import boto3
-from mistralai.client import MistralClient
+from boto3 import client as boto3_client
+from mistralai.client import MistralClient as MistralClient
 
 def get_secrets():
     """Retrieve secrets from AWS Secrets Manager"""
@@ -19,7 +19,7 @@ debug = secrets['DEBUG']                # True
 model = "mistral-large-latest"
 
 # Initialize Mistral client with API key from secrets
-client = MistralClient(api_key=api_key)
+mistral_client = MistralClient(api_key=api_key)
 
 # Print confirmation of retrieved secrets (remove in production)
 print(f"Database URL: {database_url}")
@@ -27,7 +27,7 @@ print(f"Debug mode: {debug}")
 print(f"Secret key retrieved: {'Yes' if secret_key else 'No'}")
 
 chat_response = client.chat(
-    model = model,
+    model=model,
     messages = [
         {
             "role": "user",
