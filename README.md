@@ -1,3 +1,5 @@
+Disclaimer: Files have been compiled alongside Anthropic and have not been personally vetted for clarity as of 06/27/25, review by this unique human is in progress. 
+
 # Resume Revision Project
 
 This repository contains materials related to Ryan Oates' resume revision and academic work organization.
