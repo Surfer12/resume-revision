@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Oates - Computer Science Student | Neuroscience & AI Research</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.3rem 0;
+            color: #666;
+        }
+
+        .research-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .interest-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .interest-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .interest-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .education-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .education-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .institution {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .achievements li {
+            padding: 0.3rem 0;
+            color: #666;
+        }
+
+        .achievements li:before {
+            content: "✓";
+            color: #667eea;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Ryan Oates</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Ryan Oates</h1>
+            <p>Computer Science Student & Interdisciplinary Researcher | Bridging Neuroscience & AI</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:ryan_oates@my.cuesta.edu">ryan_oates@my.cuesta.edu</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Surfer12">github.com/Surfer12</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-briefcase"></i>
+                    <a href="https://wellfound.com/u/ryan_oates">Portfolio</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:8055549012">805-554-9012</a>
+                </div>
+            </div>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Neuroscience to AI Transition</h3>
+                    <p>Built a strong foundation in biopsychology and neuroscience research before pivoting to Computer Science. This unique blend positions me perfectly for brain-inspired algorithms and neural networks that mimic human cognition.</p>
+                </div>
+                <div class="card">
+                    <h3>Research Excellence</h3>
+                    <p>Focused on hands-on research that bridges neuroscience and AI applications, including machine learning models for cognitive science, data analysis in biotech, and developing innovative approaches to human-AI interaction.</p>
+                </div>
+                <div class="card">
+                    <h3>AI Ethics & Innovation</h3>
+                    <p>Leveraging neuroscience background to contribute to AI ethics and human-AI interaction research, with commitment to responsible technology development and promoting neurodiversity in innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="section">
+        <div class="container">
+            <h2>Research Interests</h2>
+            <div class="research-interests">
+                <div class="interest-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>Brain-Inspired AI</h4>
+                    <p>Developing neural networks and algorithms that mimic human cognition, leveraging neuroscience insights to create more human-like AI systems</p>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-robot"></i>
+                    <h4>Human-AI Interaction</h4>
+                    <p>Exploring how humans and AI systems can collaborate effectively, drawing from neuroscience research to improve interface design and user experience</p>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-dna"></i>
+                    <h4>ML for Cognitive Science</h4>
+                    <p>Applying machine learning models to analyze cognitive processes and biotech data, bridging computational methods with neuroscience research</p>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>AI Ethics & Bias</h4>
+                    <p>Leveraging neuroscience background to address AI ethics, fairness, and cognitive bias in machine learning systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <h3>B.S. in Biopsychology</h3>
+                    <div class="institution">University of California, Santa Barbara | In-Progress</div>
+                    <ul class="achievements">
+                        <li>Completed coursework in cognitive science, neuroscience, and psychology</li>
+                        <li>Conducted independent research on the effects of sleep on cognitive performance</li>
+                        <li>Presented research findings at academic conferences</li>
+                        <li>Developed and validated questionnaires for advanced research projects</li>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3>B.S. in Computer Science</h3>
+                    <div class="institution">University of California, Santa Barbara | In-Progress</div>
+                    <p><strong>Focus:</strong> Positioning for machine learning programs and AI research</p>
+                    <ul class="achievements">
+                        <li>Completed coursework in algorithms, data structures, and machine learning</li>
+                        <li>Bridging neuroscience background with computational methods</li>
+                        <li>Developing expertise in AI applications for cognitive science</li>
+                        <li>Positioned for innovative work in AI ethics and human-AI interaction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                        <li>PostgreSQL</li>
+                        <li>SQL</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Machine Learning</h4>
+                    <ul>
+                        <li>Bayesian Networks</li>
+                        <li>Deep Learning</li>
+                        <li>Reinforcement Learning</li>
+                        <li>Natural Language Processing</li>
+                        <li>Computer Vision</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Specialized Areas</h4>
+                    <ul>
+                        <li>Neuro-Symbolic AI</li>
+                        <li>Cognitive Modeling</li>
+                        <li>Symbolic Reasoning</li>
+                        <li>High-Performance Computing</li>
+                        <li>Parallel Processing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Statistical Analysis</h4>
+                    <ul>
+                        <li>Experimental Design</li>
+                        <li>Confidence Intervals</li>
+                        <li>Power Analysis</li>
+                        <li>Multiple Comparison Corrections</li>
+                        <li>Uncertainty Quantification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Brain-Inspired Neural Networks</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Developing neural network architectures that incorporate neuroscience insights, creating more biologically plausible AI systems for cognitive modeling applications.</p>
+                        <p><strong>Impact:</strong> Bridging neuroscience research with practical AI applications</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>AI Ethics Research Framework</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Leveraging neuroscience background to develop frameworks for ethical AI development, focusing on bias detection and human-centered AI design principles.</p>
+                        <p><strong>Focus:</strong> Responsible AI development with neuroscience insights</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ML for Biotech Data Analysis</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Applied machine learning techniques to analyze complex biotech datasets, combining computational methods with neuroscience research expertise.</p>
+                        <p><strong>Application:</strong> Bridging computer science and life sciences research</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>AI Research Collaboration</h3>
+                    <p>Interested in brain-inspired AI research, neural networks, or human-AI interaction projects? My neuroscience background offers unique perspectives for AI innovation.</p>
+                </div>
+                <div class="card">
+                    <h3>Machine Learning Programs</h3>
+                    <p>Seeking opportunities in machine learning programs, AI research positions, or internships that leverage my interdisciplinary background in neuroscience and computer science.</p>
+                </div>
+                <div class="card">
+                    <h3>AI Ethics & Innovation</h3>
+                    <p>Exploring opportunities to contribute to AI ethics research, responsible AI development, and creating more human-centered AI systems through neuroscience insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="mailto:ryan_oates@my.cuesta.edu"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Surfer12"><i class="fab fa-github"></i></a>
+                <a href="https://wellfound.com/u/ryan_oates"><i class="fas fa-briefcase"></i></a>
+                <a href="tel:8055549012"><i class="fas fa-phone"></i></a>
+            </div>
+            <p>&copy; 2025 Ryan Oates. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .interest-item, .project-card, .education-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
